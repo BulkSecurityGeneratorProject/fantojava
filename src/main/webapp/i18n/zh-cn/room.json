@@ -1,0 +1,25 @@
+
+{
+    "roombookingApp": {
+        "room" : {
+            "home": {
+                "title": "Rooms",
+                "createLabel": "创建新 Room",
+                "createOrEditLabel": "创建或编辑 Room"
+            },
+            "created": "Room {{ param }} 创建成功",
+            "updated": "Room {{ param }} 更新成功",
+            "deleted": "Room {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Room {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Room"
+            },
+            "name": "Name",
+            "description": "Description",
+            "photo": "Photo",
+            "category": "Category"
+        }
+    }
+}

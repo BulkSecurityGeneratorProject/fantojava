@@ -42,6 +42,11 @@ public class CacheConfiguration {
             cm.createCache(com.fantosoft.roombooking.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.fantosoft.roombooking.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.fantosoft.roombooking.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.fantosoft.roombooking.domain.Room.class.getName(), jcacheConfiguration);
+            cm.createCache(com.fantosoft.roombooking.domain.RoomCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.fantosoft.roombooking.domain.Booking.class.getName(), jcacheConfiguration);
+            cm.createCache(com.fantosoft.roombooking.domain.Invoice.class.getName(), jcacheConfiguration);
+            cm.createCache(com.fantosoft.roombooking.domain.Pricing.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

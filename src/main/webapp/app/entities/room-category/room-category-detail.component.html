@@ -1,0 +1,30 @@
+
+<div *ngIf="roomCategory">
+    <h2><span jhiTranslate="roombookingApp.roomCategory.detail.title">Room Category</span> {{roomCategory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roombookingApp.roomCategory.name">Name</span></dt>
+        <dd>
+            <span>{{roomCategory.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.roomCategory.description">Description</span></dt>
+        <dd>
+            <span>{{roomCategory.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'room-category/'+ roomCategory.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

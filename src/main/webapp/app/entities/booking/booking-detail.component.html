@@ -1,0 +1,48 @@
+
+<div *ngIf="booking">
+    <h2><span jhiTranslate="roombookingApp.booking.detail.title">Booking</span> {{booking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roombookingApp.booking.from">From</span></dt>
+        <dd>
+            <span>{{booking.from | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.booking.until">Until</span></dt>
+        <dd>
+            <span>{{booking.until | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.booking.guestName">Guest Name</span></dt>
+        <dd>
+            <span>{{booking.guestName}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.booking.guestEmail">Guest Email</span></dt>
+        <dd>
+            <span>{{booking.guestEmail}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.booking.guestPhone">Guest Phone</span></dt>
+        <dd>
+            <span>{{booking.guestPhone}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.booking.room">Room</span></dt>
+        <dd>
+            <div *ngIf="booking.room">
+                <a [routerLink]="['/room', booking.room?.id]">{{booking.room?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'booking/'+ booking.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

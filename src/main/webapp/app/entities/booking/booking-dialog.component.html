@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBookingLabel" jhiTranslate="roombookingApp.booking.home.createOrEditLabel">Create or edit a Booking</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!booking.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="booking.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.from" for="field_from">From</label>
+            <div class="input-group">
+                <input id="field_from" type="text" class="form-control" name="from" ngbDatepicker  #fromDp="ngbDatepicker" [(ngModel)]="booking.from"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="fromDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.until" for="field_until">Until</label>
+            <div class="input-group">
+                <input id="field_until" type="text" class="form-control" name="until" ngbDatepicker  #untilDp="ngbDatepicker" [(ngModel)]="booking.until"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="untilDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.guestName" for="field_guestName">Guest Name</label>
+            <input type="text" class="form-control" name="guestName" id="field_guestName"
+                [(ngModel)]="booking.guestName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.guestEmail" for="field_guestEmail">Guest Email</label>
+            <input type="text" class="form-control" name="guestEmail" id="field_guestEmail"
+                [(ngModel)]="booking.guestEmail" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.guestPhone" for="field_guestPhone">Guest Phone</label>
+            <input type="text" class="form-control" name="guestPhone" id="field_guestPhone"
+                [(ngModel)]="booking.guestPhone" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roombookingApp.booking.room" for="field_room">Room</label>
+            <select class="form-control" id="field_room" name="room" [(ngModel)]="booking.room" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="roomOption.id === booking.room?.id ? booking.room : roomOption" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

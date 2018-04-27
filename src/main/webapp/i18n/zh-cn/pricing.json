@@ -1,0 +1,23 @@
+
+{
+    "roombookingApp": {
+        "pricing" : {
+            "home": {
+                "title": "Pricings",
+                "createLabel": "创建新 Pricing",
+                "createOrEditLabel": "创建或编辑 Pricing"
+            },
+            "created": "Pricing {{ param }} 创建成功",
+            "updated": "Pricing {{ param }} 更新成功",
+            "deleted": "Pricing {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Pricing {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Pricing"
+            },
+            "priceGuest": "Price Guest",
+            "pricing": "Pricing"
+        }
+    }
+}

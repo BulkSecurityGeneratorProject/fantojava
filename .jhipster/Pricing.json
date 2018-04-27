@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pricing",
+            "otherEntityName": "roomCategory",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "pricing"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "priceGuest",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20180424092033",
+    "entityTableName": "pricing",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

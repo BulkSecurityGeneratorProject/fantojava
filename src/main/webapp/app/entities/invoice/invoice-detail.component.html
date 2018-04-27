@@ -1,0 +1,32 @@
+
+<div *ngIf="invoice">
+    <h2><span jhiTranslate="roombookingApp.invoice.detail.title">Invoice</span> {{invoice.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roombookingApp.invoice.uri">Uri</span></dt>
+        <dd>
+            <span>{{invoice.uri}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.invoice.booking">Booking</span></dt>
+        <dd>
+            <div *ngIf="invoice.booking">
+                <a [routerLink]="['/booking', invoice.booking?.id]">{{invoice.booking?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'invoice/'+ invoice.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

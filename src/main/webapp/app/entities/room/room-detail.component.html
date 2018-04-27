@@ -1,0 +1,43 @@
+
+<div *ngIf="room">
+    <h2><span jhiTranslate="roombookingApp.room.detail.title">Room</span> {{room.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roombookingApp.room.name">Name</span></dt>
+        <dd>
+            <span>{{room.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.room.description">Description</span></dt>
+        <dd>
+            <span>{{room.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.room.photo">Photo</span></dt>
+        <dd>
+            <div *ngIf="room.photo">
+                <a (click)="openFile(room.photoContentType, room.photo)" jhiTranslate="entity.action.open">open</a>
+                {{room.photoContentType}}, {{byteSize(room.photo)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roombookingApp.room.category">Category</span></dt>
+        <dd>
+            <div *ngIf="room.category">
+                <a [routerLink]="['/room-category', room.category?.id]">{{room.category?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'room/'+ room.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "from",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "until",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "guestName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "guestEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "guestPhone",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180424092031",
+    "entityTableName": "booking",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
