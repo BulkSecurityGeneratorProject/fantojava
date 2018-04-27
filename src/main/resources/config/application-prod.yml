@@ -27,7 +27,7 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgres://npoaamsmljfrkn:2b03b5549b67645f7317e845d4f04028392d9d874bf1af43d91453588d4a11bf@ec2-23-21-166-148.compute-1.amazonaws.com:5432/d7vmmlcqmvksir
+        url: postgres://npoaamsmljfrkn:2b03b5549b67645f7317e845d4f04028392d9d874bf1af43d91453588d4a11bf@ec2-23-21-166-148.compute-1.amazonaws.com:5432/d7vmmlcqmvksir
         username: npoaamsmljfrkn
         password: 2b03b5549b67645f7317e845d4f04028392d9d874bf1af43d91453588d4a11bf
     jpa:
